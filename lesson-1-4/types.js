@@ -14,6 +14,8 @@ console.log('not a number' / 2 + 2);
 let oneQuoteStr = 'One quote S';
 let doubleQuotesStr = "Double quote's String";
 
+
+
 // Allows include some statement inside your string call like a tamplate string
 let qa = "QA";
 let name = 'Karl';
