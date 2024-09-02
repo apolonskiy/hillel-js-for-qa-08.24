@@ -1,3 +1,3 @@
-const {testName} = require('./export.js');
+const exportFile = require('./export.js');
 
-console.log(testName)
+console.log(exportFile.testName)

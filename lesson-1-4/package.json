@@ -1,0 +1,29 @@
+{
+  "name": "lesson-1-4",
+  "version": "1.0.0",
+  "description": "Showcase",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"test\"",
+    "start": "webpack ",
+    "api-test": "jest --configFile='../..' "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apolonskiy/hillel-js-for-qa-08.24.git"
+  },
+  "keywords": [
+    "Hillel"
+  ],
+  "author": "Andrii",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/apolonskiy/hillel-js-for-qa-08.24/issues"
+  },
+  "homepage": "https://github.com/apolonskiy/hillel-js-for-qa-08.24#readme",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "chalk": "4.1.0"
+  }
+}

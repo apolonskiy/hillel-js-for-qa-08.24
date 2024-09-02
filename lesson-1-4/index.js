@@ -1,4 +1,6 @@
 // NPM INIT, LOCK FILE, GITIGNORE, STRUCTURE OF DEPENDENCIES IN NODE_MODULES
+// npm pack / npm publish 
+// npmrc file + lock file config
 
 // NPM SCRIPTS
 
@@ -48,3 +50,96 @@
 
 // const ternary = 1 >2 ||true && false ? 'truthy result' : 'falsy result'
 // console.log(ternary)
+
+// console.log(test3);
+
+// const test1 = 'test1';
+
+// // console.log(func1())
+// // console.log(func2())
+// console.log(func3())
+// // ----------
+
+// var test3 = 'test3';
+// let test2 = 'test2';
+
+// const func1 = () => {
+//     console.log(test1);
+//     const test4 = 'test4';
+//     test2 = 'test6';
+//     console.log(test2)
+//     var test3 = 'test5';
+// }
+
+// const funcArr = (arg) => arg > 3 ? 'truthy' : 'falsy';
+// console.log(funcArr(4))
+
+
+// const func2 = function () {
+//     console.log('func2')
+// }
+
+// function func3() {
+//     console.log('func3');
+//     return 'func3';
+// }
+
+
+// // let test2 = 'test7';
+// func1();
+
+// console.log(test3)
+
+// const quotes1 = 'quetes \'test2\' "test" ';
+// const quotes2 = "quetes 'test' ";
+
+// const str1 = 'test1 ' + quotes1 + 'my life';
+// const str2 = 'test1'.concat(quotes1);
+
+// const userName = 'Andrii';
+// const templateLiteral = `Welcome back, ${userName}!`
+
+
+// console.log('7' + 3 + 5);
+// console.log('7' - '3' + 5);
+// console.log('7a' + 3 - 5);
+
+
+// console.log(0 || 4 || 1);
+
+// console.log(true && true); 
+// console.log(1 * 1);
+
+// console.log(false && true);
+// console.log(0 * 1);
+
+// console.log(!0);// == console.log(Boolean(!0));
+
+// console.log(!null)
+
+// console.log(!!0)
+
+// console.log(0 ?? 'test');
+
+let abc = 4;
+
+// abc = abc + 2;
+
+abc /= 3 // abc = abc / 3
+
+
+
+let right = 4;
+let left = 4;
+
+console.log(right++);
+console.log(right);
+console.log(++left)
+
+const promptValueAge = '67';
+
+console.log(typeof(Number(promptValueAge)) === 'string' )
+
+console.log(Number(promptValueAge) + 18)
+
+console.log(+true)
