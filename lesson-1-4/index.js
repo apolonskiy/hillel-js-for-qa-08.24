@@ -143,3 +143,17 @@ console.log(typeof(Number(promptValueAge)) === 'string' )
 console.log(Number(promptValueAge) + 18)
 
 console.log(+true)
+
+//-----------
+// Приклад з уроку з областю видимості, те на чому запнувся
+
+const testInFunc = 'qqq';
+
+const func = () => {
+    // console.log(testInFunc); // поки це посилається на конст ПОЗА функцією
+    const testInFunc = 'www'; // як тільки ми кажемо, що у нас є новий const з цим же іменем, то ми вважаємо що в цьому блоку він єдиний,  виклик вище кидає помилку
+    console.log(testInFunc);
+    // можете покоментити одну чи інше, побачити як вон опрацює
+}
+
+func()
