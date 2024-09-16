@@ -46,3 +46,5 @@ const generatePerson = (name: string, age: number, gender: Gender, isAdult?: boo
 }
 
 console.log(generatePerson('AAA', 12, 'male'));
+
+const arrStr: (string | number) [] = [1,  'st', 3]
