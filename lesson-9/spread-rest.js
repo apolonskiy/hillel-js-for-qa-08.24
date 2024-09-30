@@ -5,7 +5,7 @@ const newNumbers = [...numbers, 4, 5];
 function add(...nums) {
   return nums.reduce((total, num) => total + num, 0);
 }
-                // 1, 2, 3, 4, 5 (NOT ARRAY)
+// 1, 2, 3, 4, 5 (NOT ARRAY)
 console.log(add(...newNumbers)); // 6
 
 //spread

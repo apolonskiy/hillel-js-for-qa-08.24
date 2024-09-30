@@ -10,8 +10,8 @@ console.log(myMap);
 console.log(myMap.get(mapKeyObject)) // 'value1')
 
 for(const [key, value] of myMap){
-    console.log(key);
-    console.log(value)
+  console.log(key);
+  console.log(value)
 }
 
 console.log({} == {})

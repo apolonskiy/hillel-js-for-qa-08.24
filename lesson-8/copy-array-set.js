@@ -25,7 +25,7 @@ console.log(copiedArrayArrayFrom)
 console.log(originalArray);
 
 // deep and shalow copy
-const deepArray = [[1,2], 3, [4,5], 6, {key: 'valye', key2: 'value'}];
+const deepArray = [[1, 2], 3, [4, 5], 6, {key: 'valye', key2: 'value'}];
 const shallowCopy = [...deepArray];
 const deepCopy = JSON.parse(JSON.stringify(deepArray));
 const deepCopyStructuredClone = structuredClone(deepArray);
@@ -44,10 +44,10 @@ console.log(deepCopy)
 console.log(deepCopyStructuredClone)
 
 const ojbUser = {
-    user: {
-        email: 'aa@aa.com',
-        userName: 'aa'
-    }
+  user: {
+    email: 'aa@aa.com',
+    userName: 'aa'
+  }
 }
 
 //...
@@ -60,4 +60,4 @@ console.log(userCopy === ojbUser)
 /// Set 
 const arr = [1, 2, 2, 3, 4, 4, 5];
 const uniqueValues = [...new Set(arr)]; // [1, 2, 3, 4, 5]
-console.log(new Set(['a','a','b','c',4]));
+console.log(new Set(['a', 'a', 'b', 'c', 4]));

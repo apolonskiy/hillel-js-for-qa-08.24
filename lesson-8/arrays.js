@@ -19,12 +19,12 @@ const lastIndex = fruits.length - 1;
 console.log(fruits[lastIndex]); // Виведе "orange"
 
 const matrix = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9],
-  ];
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+];
 
-  console.log(matrix[2][1]); //
+console.log(matrix[2][1]); //
 
-  const matrixReal = [[1, 2, 3],[4, 5, 6],[7, 8, 9]];
+const matrixReal = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
 

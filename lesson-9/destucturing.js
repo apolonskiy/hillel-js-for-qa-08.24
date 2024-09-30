@@ -1,50 +1,50 @@
 // objects
 
 const person = {
-    name: "John",
-    age: 30,
-    gender: "male"
-  };
+  name: "John",
+  age: 30,
+  gender: "male"
+};
 
-  const personName = person.name;
-  const name = 'MyName'
+const personName = person.name;
+const name = 'MyName'
 
-  const {name: personalisedName, age, favMeal = 'Kasha'} = person;
-  console.log(name, age, favMeal, personalisedName);
+const {name: personalisedName, age, favMeal = 'Kasha'} = person;
+console.log(name, age, favMeal, personalisedName);
 
-  const people = [
-    { name: "John", age: 30 },
-    { name: "Jane", age: 25 }
-  ];
+const people = [
+  { name: "John", age: 30 },
+  { name: "Jane", age: 25 }
+];
 
 for(const {name: cycleName} of people) {
-    console.log(cycleName)
+  console.log(cycleName)
 }
 
 const func = (num = 5) => num * 2
 console.log(func())
 
-const handleObje = ({test} = {test: 'DevaultValue'} ) => {
-    console.log(test);
+const handleObje = ({test} = {test: 'DevaultValue'}) => {
+  console.log(test);
 }
 
 handleObje('sdgsdg')
 
 const personMultiLevel = {
-    name: "John",
-    age: 30,
-    address: {
-      city: "New York",
-      country: "USA"
-    }
-  };
+  name: "John",
+  age: 30,
+  address: {
+    city: "New York",
+    country: "USA"
+  }
+};
 
-  const { address } = personMultiLevel
-  const { city }  = address
-  console.log(city, address)
-  console.log(personMultiLevel)
+const { address } = personMultiLevel
+const { city }  = address
+console.log(city, address)
+console.log(personMultiLevel)
 
-  // arrays
+// arrays
 const numbers = [1, 2, 3];
 
 const [first, , third, fourth = 4] = numbers;

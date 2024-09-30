@@ -5,6 +5,6 @@ const testNumber = 4;
 // exports = {};
 // module.exports.testNameExported = testName;
 // exports = {
- // testNameExported: 'data'
- //}
+// testNameExported: 'data'
+//}
 module.exports = testNumber;

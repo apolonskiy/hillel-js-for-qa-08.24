@@ -15,15 +15,15 @@ var variable3 = null;
 // }
 
 function arrFuncSum (a, b) {
-    // const variable1 = 'New Value'
-    // console.log(variable1);
-    // let variable2 = 111;
-    // console.log(variable2);
-    // variable2 = 666;
-    // console.log(variable2);
-    console.log(variable3);
-    var variable3 = undefined;
-    return a + b
+  // const variable1 = 'New Value'
+  // console.log(variable1);
+  // let variable2 = 111;
+  // console.log(variable2);
+  // variable2 = 666;
+  // console.log(variable2);
+  console.log(variable3);
+  var variable3 = undefined;
+  return a + b
 }
 // console.log(variable2);
 
@@ -45,9 +45,9 @@ console.log(variable3);
 // EARLY RETURN
 
 const Console = {
-    log(ars){
-        process.stdout.print(ars)
-    }
+  log(ars){
+    process.stdout.print(ars)
+  }
 }
 
 // function concatStrings(str1, str2) {
@@ -64,17 +64,17 @@ const Console = {
 // console.log(concatStrings(2, 'sdfg'))
 
 const fruitType = (plant) => {
-    switch (plant) {
-        case 'Apple':
-        case 'Plum':
-        case 'Pear':
-            return 'Fruit';
-        case 'Tomato':
-            return 'Vegy'
-            break;
-        default:
-            break;
-    }
+  switch (plant) {
+    case 'Apple':
+    case 'Plum':
+    case 'Pear':
+      return 'Fruit';
+    case 'Tomato':
+      return 'Vegy'
+      break;
+    default:
+      break;
+  }
 }
 
 console.log(fruitType('Apple'))
@@ -82,16 +82,16 @@ console.log(fruitType('Apple'))
 const plant = 'Apple'
 let result = ''
 switch (plant) {
-    case 'Apple':
-    case 'Plum':
-    case 'Pear':
-        result  = 'Fruit';
-        break;
-    case 'Tomato':
-        result = 'Vegy'
-        break;
-    default:
-        break;
+  case 'Apple':
+  case 'Plum':
+  case 'Pear':
+    result  = 'Fruit';
+    break;
+  case 'Tomato':
+    result = 'Vegy'
+    break;
+  default:
+    break;
 }
 
 console.log(result)

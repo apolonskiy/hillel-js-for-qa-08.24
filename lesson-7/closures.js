@@ -1,12 +1,12 @@
 function outer() {
-    let outerVar = 10;
+  let outerVar = 10;
 
-    function inner() {
-        console.log(outerVar);
-        console.log(process.env.ABC);
-    }
+  function inner() {
+    console.log(outerVar);
+    console.log(process.env.ABC);
+  }
 
-    return inner;
+  return inner;
 }
 
 const closureFn = outer();
@@ -16,10 +16,10 @@ closureFn(); // Виведе 10
 
 const range = (a, b) => a > b ? [] : [a, ...range(a+1, b)];
 
-console.log(range(3,6))
+console.log(range(3, 6))
 
 
-const res5 = range(1,5);
+const res5 = range(1, 5);
 console.log(res5)
 const multiply = arr => arr.reduce((p, a) => p * a);
 

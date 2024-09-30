@@ -40,35 +40,73 @@
 
 
 class FetchHandler {
-    constructor(url, method, headers = {}){
-        this.url = url;
-        this.method = method;
-        this.headers = headers
-    }
+  constructor(url, method, headers = {}){
+    this.url = url;
+    this.method = method;
+    this.headers = headers
+  }
 
-    async #fetchUrl(){
-        const response = await fetch(this.url, {
-            method: this.method,
-            headers: this.headers
-        });
-        return response.json();
-    }
+  async #fetchUrl(){
+    const response = await fetch(this.url, {
+      method: this.method,
+      headers: this.headers
+    });
+    return response.json();
+  }
 
-    async handleFetchUrl(){
-        try {
-            const fetchResult = await this.#fetchUrl()
-            return fetchResult
-        } catch (err) {
-            return err
+  async handleFetchUrl(){
+    try {
+      const fetchResult = await this.#fetchUrl()
+      return fetchResult
+    } catch (err) {
+      return err
 
-        }
     }
+  }
 }
 
 const fetchCall = async () => {
-    const fetchGetPlanet1 = new FetchHandler('https://swapi.dev/api/planets/7/', 'GET');
-    console.log(await fetchGetPlanet1.handleFetchUrl())
-    console.log('STILL WORKS')
+  const fetchGetPlanet1 = new FetchHandler('https://swapi.dev/api/planets/7/', 'GET');
+  console.log(await fetchGetPlanet1.handleFetchUrl())
+  console.log('STILL WORKS')
 }
 
-fetchCall()
+// fetchCall()
+const url1 = 'https://jsonplaceholder.typicode.com/todos/1';
+const url2 = 'https://jsonplaceholder.typicode.com/users/1';
+
+function getTodos(url){
+  return new Promise((resolve, reject) => {
+    fetch(url)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => resolve(data))
+      .catch(error => reject(error));
+  })
+};
+
+function getUser(url){
+  return new Promise((resolve, reject) => {
+    fetch(url)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => resolve(data))
+      .catch(error => reject(error));
+  })
+};
+
+const a = getTodos(url1);
+const b = getUser(url2);
+const promisesAll = Promise.all([a, b]).then(res => {return res}).catch(err => err);
+const promiseRace = Promise.race([a, b]).then(res => {return res}).catch(err => err);
+
+promisesAll.then(res => {console.log(res)});
+promiseRace.then(res => {console.log(res)});

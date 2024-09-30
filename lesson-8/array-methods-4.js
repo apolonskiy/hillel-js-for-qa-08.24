@@ -3,7 +3,7 @@ const months = ['March', 'Jan', 'Feb', 'Dec'];
 months.sort();
 console.log(months); //  ["Dec", "Feb", "Jan", "March"]
 
-const numbers = [5,7,3,347,474,4, 4, 3325,36];
+const numbers = [5, 7, 3, 347, 474, 4, 4, 3325, 36];
 numbers.sort()
 console.log(numbers)
 // numbers.sort((a, b) => {
@@ -18,7 +18,7 @@ console.log(numbers)
 //       // a must be equal to b
 //       return 0;
 // })
-numbers.sort((a,b) => b - a)
+numbers.sort((a, b) => b - a)
 
 console.log(numbers)
 
@@ -30,30 +30,30 @@ console.log(fruits);
 
 // object sorting
 const data = [
-    { lastLoginAt: 1637299200, name: 'Alice' },
-    { lastLoginAt: 1638405600, name: 'Bob' },
-    { lastLoginAt: 1638387200, name: 'Charlie' }
-  ];
+  { lastLoginAt: 1637299200, name: 'Alice' },
+  { lastLoginAt: 1638405600, name: 'Bob' },
+  { lastLoginAt: 1638387200, name: 'Charlie' }
+];
   
-  // Функція сортування
-  function sortByDateUnix(field) {
-      return (a, b) => {
-          if (a[field] < b[field]) {
-              return -1;
-          }
-          if (a[field] > b[field]) {
-              return 1;
-          }
-          return 0;
-      };
-  }
+// Функція сортування
+function sortByDateUnix(field) {
+  return (a, b) => {
+    if (a[field] < b[field]) {
+      return -1;
+    }
+    if (a[field] > b[field]) {
+      return 1;
+    }
+    return 0;
+  };
+}
   
-  data.sort(sortByDateUnix('lastLoginAt')); // Сортування за полем 'field' у порядку зростання
+data.sort(sortByDateUnix('lastLoginAt')); // Сортування за полем 'field' у порядку зростання
 
 //   data.sort((a, b) => b['lastLoginAt'] - a['lastLoginAt']); // Сортування за полем 'field' у порядку зростання
-  console.log(data);
+console.log(data);
 
-  // reverse
+// reverse
 const numbersRev = [1, 2, 3, 4, 5];
 numbersRev.reverse(); 
 console.log(numbersRev)
@@ -61,8 +61,8 @@ console.log(numbersRev)
 // reduce
 const numbersReduce = [1, 2, 3, 4, 5];
 const sum = numbersReduce.reduce((accumulator, currentValue) => {
-    // initialValiue (5) + accumulator += currentValue
-    return accumulator + currentValue
+  // initialValiue (5) + accumulator += currentValue
+  return accumulator + currentValue
 }, 5);
 console.log(sum)
 

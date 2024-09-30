@@ -19,13 +19,13 @@
 // foo(); // Призведе до переповнення стеку
 
 const mathCount = (sum, divider, subDiv) => {
-    const subResult = subDivider(divider, subDiv);
-    const result = sum / subResult;
-    return result
+  const subResult = subDivider(divider, subDiv);
+  const result = sum / subResult;
+  return result
 }
 
 function subDivider(divider, subDiv) {
-    return divider / subDiv
+  return divider / subDiv
 }
 
 console.log(mathCount(100, 40, 20))

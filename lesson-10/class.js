@@ -1,10 +1,10 @@
 function AnimalExample(name) {
-    this.name = name
+  this.name = name
 }
 console.log(AnimalExample)
 
 class NoConstruct {
-    name = 'NoCostruct';
+  name = 'NoCostruct';
 }
 console.log(NoConstruct)
 
@@ -13,38 +13,38 @@ console.log(noConstructEx.name);
 let count = 0
 
 class Animal {
-    sound = 'Breath';
-    #legs = 4;
-    _ears = 2;
-    constructor(name = 'Animal', legs) {
-        this.name = name;
-        this.#legs = legs
-        count++;
-    }
+  sound = 'Breath';
+  #legs = 4;
+  _ears = 2;
+  constructor(name = 'Animal', legs) {
+    this.name = name;
+    this.#legs = legs
+    count++;
+  }
 
-    produceSount() {
-        console.log(`${this.name} which has ${this.#legs} says ${this.#getSoung()}`)
-    }
+  produceSount() {
+    console.log(`${this.name} which has ${this.#legs} says ${this.#getSoung()}`)
+  }
 
-    #getSoung() {
-        return this.sound;
-    }
+  #getSoung() {
+    return this.sound;
+  }
 
-    _getEarsCount(){
-        return this._ears
-    }
+  _getEarsCount(){
+    return this._ears
+  }
 
-    get legsCount(){
-        return this.#legs
-    }
+  get legsCount(){
+    return this.#legs
+  }
 
-    set legsCount(legs){
-        this.#legs = legs
-    }
+  set legsCount(legs){
+    this.#legs = legs
+  }
 
-    static isAlive(){
-        return `Animals are alive, ${count}`;
-    }
+  static isAlive(){
+    return `Animals are alive, ${count}`;
+  }
 }
 
 const animal = new Animal(undefined, 4);

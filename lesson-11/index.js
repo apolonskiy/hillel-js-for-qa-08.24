@@ -78,53 +78,53 @@
 
 
 async function errorHandling(isValidUrl) {
-    try{
-        const res1 = await fetch(isValidUrl ? 'https://swapi.dev/api/planets/1/' : 'sdgdsg');
-        // if(res1.status !== 200) throw new Error('Fetch request failed!' + res1.err);
-        return res1.json()
-    } catch(err){
-        return err.stack
-    }
+  try{
+    const res1 = await fetch(isValidUrl ? 'https://swapi.dev/api/planets/1/' : 'sdgdsg');
+    // if(res1.status !== 200) throw new Error('Fetch request failed!' + res1.err);
+    return res1.json()
+  } catch(err){
+    return err.stack
+  }
 }
 
 async function callErrorHandling(isValidUrl) {
-    const result = await errorHandling(isValidUrl)
-    console.log(result)
+  const result = await errorHandling(isValidUrl)
+  console.log(result)
 }
 // callErrorHandling(true)
 callErrorHandling(false)
 console.log('111')
 
 class FetchHandler {
-    constructor(url, method, headers = {}){
-        this.url = url;
-        this.method = method;
-        this.headers = headers
-    }
+  constructor(url, method, headers = {}){
+    this.url = url;
+    this.method = method;
+    this.headers = headers
+  }
 
-    async #fetchUrl(){
-        const response = await fetch(this.url, {
-            method: this.method,
-            headers: this.headers
-        });
-        const responseJson = await response.json();
-        return responseJson
-    }
+  async #fetchUrl(){
+    const response = await fetch(this.url, {
+      method: this.method,
+      headers: this.headers
+    });
+    const responseJson = await response.json();
+    return responseJson
+  }
 
-    async handleFetchUrl(){
-        try {
-            const fetchResult = await this.#fetchUrl()
-            return fetchResult
-        } catch (err) {
-            return err.stack
+  async handleFetchUrl(){
+    try {
+      const fetchResult = await this.#fetchUrl()
+      return fetchResult
+    } catch (err) {
+      return err.stack
 
-        }
     }
+  }
 }
 
 const fetchCall = async () => {
-    const fetchGetPlanet1 = new FetchHandler('https:', 'GET');
-    console.log(await fetchGetPlanet1.handleFetchUrl())
+  const fetchGetPlanet1 = new FetchHandler('https:', 'GET');
+  console.log(await fetchGetPlanet1.handleFetchUrl())
 }
 
 fetchCall()

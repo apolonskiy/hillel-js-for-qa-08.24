@@ -1,8 +1,8 @@
 let result = ''
 function saySmth(phrase, name, cb) {
-    result = '123'
-    cb()
-    console.log(`${phrase} ${name}! ${result}`);
+  result = '123'
+  cb()
+  console.log(`${phrase} ${name}! ${result}`);
 }
 saySmth()
 console.log('BeforeTimer')

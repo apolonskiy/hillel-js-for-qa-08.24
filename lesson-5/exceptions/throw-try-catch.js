@@ -4,17 +4,17 @@
 //     }
 //     console.log(age);
 
-const strSubtsring = (str) => str.substring(0,3);
+const strSubtsring = (str) => str.substring(0, 3);
 
 // const mySubStr = strSubtsring();
 // console.log(mySubStr);
 //...
 
 try {
-    const mySubStr = strSubtsring()
-    console.log(mySubStr);
+  const mySubStr = strSubtsring()
+  console.log(mySubStr);
 } catch(e) {
-    console.log(e.message);
+  console.log(e.message);
 }
 console.log('code still works')
 

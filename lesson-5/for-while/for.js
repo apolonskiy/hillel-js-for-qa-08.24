@@ -39,9 +39,9 @@
 
 
 for (let i = 1; i <= 4; i++) {
-    // i = 1; //i = 2; // i=3;
-	for (let j = 1; j <= 2; j++) {
-        // i= 2; j = 1 //  i =2; j =2;
-		console.log(i, j);
-	}
+  // i = 1; //i = 2; // i=3;
+  for (let j = 1; j <= 2; j++) {
+    // i= 2; j = 1 //  i =2; j =2;
+    console.log(i, j);
+  }
 }

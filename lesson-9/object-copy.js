@@ -7,15 +7,15 @@ const objCopy = {...originalObject}
 
 // multi level object copy
 const obj1 = {
-    name: 'aaa',
-    value: 2,
-    internalObject: {
-        veryIngernalObject: {
-            key: 1,
-            key2: 'value'
-        },
-        someText: 'text'
-    }
+  name: 'aaa',
+  value: 2,
+  internalObject: {
+    veryIngernalObject: {
+      key: 1,
+      key2: 'value'
+    },
+    someText: 'text'
+  }
 }
 
 const obj1Copy = {...obj1};

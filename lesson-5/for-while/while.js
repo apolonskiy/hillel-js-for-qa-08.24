@@ -7,13 +7,13 @@
 let isVisible = isElementVisible();
 let counter = 0;
 while (!isVisible && counter < 30) {
-    // sleep(500) ms;
-    isVisible = isElementVisible();
-    counter++;
+  // sleep(500) ms;
+  isVisible = isElementVisible();
+  counter++;
 }
 
 let count = 4;
 do {
-    console.log(count); 
-    count++;
+  console.log(count); 
+  count++;
 } while (count < 3)
