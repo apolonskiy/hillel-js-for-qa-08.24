@@ -7,7 +7,7 @@ test('POST /Account/v1/User invalid payload', async() => {
     expect(response.data.message).toBe('UserName and Password required.')
 })
 
-test('POST /Account/v1/User invalid payload', async() => {
+test('POST /Account/v1/Token Valid', async() => {
     const response = await axios.post('https://demoqa.com/Account/v1/GenerateToken', 
             {
                 userName: 'andrii_1',
@@ -20,4 +20,9 @@ test('POST /Account/v1/User invalid payload', async() => {
     expect(response.data.status).toBeDefined()
     expect(response.data.result).toBeDefined()
 
+})
+
+test('POST Books', async() => {
+    const response = await axios.get('https://api.restful-api.dev/objects');
+    expect(response.status).toBe(200);
 })
