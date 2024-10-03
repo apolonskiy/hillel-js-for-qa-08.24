@@ -22,7 +22,7 @@ test('POST /Account/v1/Token Valid', async() => {
 
 })
 
-test('POST Books', async() => {
+test('GET Books', async() => {
     const response = await axios.get('https://api.restful-api.dev/objects');
     expect(response.status).toBe(200);
 })
