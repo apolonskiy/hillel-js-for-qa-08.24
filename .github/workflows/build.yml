@@ -1,0 +1,16 @@
+name: CI API Tests
+on:
+  pull_request:
+    types: ['opened']
+jobs:
+  tests: 
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+    - name: Navigate test folder
+      run: cd lesson13-14
+    - name: Install dependecies
+      run: npm ci
+    - name: Run api test
+      run: npm run test:node-setup

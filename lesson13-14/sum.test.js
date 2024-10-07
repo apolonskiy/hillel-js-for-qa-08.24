@@ -20,6 +20,7 @@ describe('Sum function testing', () => {
 
     //TOD: review later JIRA TASK
     test.failing('Test sum func negative', async() => {
+        const sum = sum(1,2);
         expect(sum(1,2)).toEqual(3)
         expect(sum(1,2)).toEqual(4)
     })
