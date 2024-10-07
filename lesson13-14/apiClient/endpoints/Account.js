@@ -15,9 +15,9 @@ export default class Account extends RestClient {
     }
     */
   async createUser(data, headers) {
-    const resp = await this.sendPost({url: `${this.url}/User`, data, headers});
+    const resp = await this.sendPost({ url: `${this.url}/User`, data, headers });
     if(resp.status === 201) {
-      this.createdEntitiesIds.push({userId: resp.data.userID, userPayload: data})
+      this.createdEntitiesIds.push({ userId: resp.data.userID, userPayload: data })
     }
     return resp
   }
@@ -29,7 +29,7 @@ export default class Account extends RestClient {
     }
     */
   async generateToken(data, headers) {
-    return this.sendPost({url: `${this.url}/GenerateToken`, data, headers});
+    return this.sendPost({ url: `${this.url}/GenerateToken`, data, headers });
   }
 
 
@@ -40,21 +40,21 @@ export default class Account extends RestClient {
     }
     */
   async isAuthorized(data, headers) {
-    return this.sendPost({url: `${this.url}/Authorized`, data, headers});
+    return this.sendPost({ url: `${this.url}/Authorized`, data, headers });
   }
 
   async deleteUser(userId, headers) {
-    return this.sendDelete({url: `${this.url}/User/${userId}`, headers});
+    return this.sendDelete({ url: `${this.url}/User/${userId}`, headers });
   }
 
   async getUserById(userId, headers) {
-    return this.sendGet({url: `${this.url}/User/${userId}`, headers});
+    return this.sendGet({ url: `${this.url}/User/${userId}`, headers });
   }
 
   async cleanUp() {
-    for await(const {userPayload, userId} of this.createdEntitiesIds){
+    for await(const { userPayload, userId } of this.createdEntitiesIds){
       const respToken = await this.generateToken(userPayload);
-      await this.deleteUser(userId, {Authorization: `Bearer ${respToken?.data?.token}`})
+      await this.deleteUser(userId, { Authorization: `Bearer ${respToken?.data?.token}` })
     }
   }
 }

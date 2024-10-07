@@ -4,7 +4,7 @@ import axios from 'axios';
 // console.log(regularAxiosCall.data)
 
 
-const axiosInstance = axios.create({baseURL: 'https://demoqa.com', validateStatus: () => true});
+const axiosInstance = axios.create({ baseURL: 'https://demoqa.com', validateStatus: () => true });
 // const resp = await axiosInstance.get('/BookStore/v1/Books')
 // console.log(resp.data);
 

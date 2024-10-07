@@ -7,7 +7,7 @@ export default [
   {
     files: ["**/*.js", "**/*.mjs"],
   },
-  {ignores: ['.jest-html-reporters-attach/*']},
+  { ignores: ['.jest-html-reporters-attach/*'] },
   {
     languageOptions: {
       ecmaVersion: 'latest',
@@ -33,7 +33,8 @@ export default [
         { "SwitchCase": 1 }
       ],
       "space-in-parens": ["error", "never"],
-      "jest/no-standalone-expect": "off"
+      "jest/no-standalone-expect": "off",
+      "@stylistic/js/object-curly-spacing": ["error","always"]
     }
   },
   {

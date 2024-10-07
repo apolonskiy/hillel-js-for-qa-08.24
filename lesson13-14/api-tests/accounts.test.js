@@ -1,4 +1,4 @@
-import Account from '../apiClient/endpoints/Account';
+import { Account } from '../apiClient';
 import { faker } from '@faker-js/faker';
 let accountApi;
 let createUserPayload;
@@ -46,7 +46,7 @@ describe('Account tests', () => {
   });
 
   test('Can verify that user is not logged in if does not exist', async ()=> {
-    const notExistingUser = {...createUserPayload};
+    const notExistingUser = { ...createUserPayload };
     notExistingUser.userName = faker.internet.userName();
     const resp = await accountApi.isAuthorized(notExistingUser);
     expect(resp.status).toEqual(404);
@@ -67,7 +67,7 @@ describe('Account tests', () => {
   });
 
   test('Can GET existing user successfully', async ()=> {
-    const resp = await accountApi.getUserById(userId, {Authorization: `Bearer ${token}`});
+    const resp = await accountApi.getUserById(userId, { Authorization: `Bearer ${token}` });
     expect(resp.status).toEqual(200);
     expect(resp.data.userId).toEqual(userId);
     expect(resp.data.username).toEqual(createUserPayload.userName);
@@ -75,36 +75,36 @@ describe('Account tests', () => {
   });
 
   test('Cannot GET existing user without auth', async ()=> {
-    const resp = await accountApi.getUserById(userId, {Authorization: `Bearer abc`});
+    const resp = await accountApi.getUserById(userId, { Authorization: `Bearer abc` });
     expect(resp.status).toEqual(401);
     expect(resp.data.message).toEqual("User not authorized!");
   });
 
 
   test('Cannot GET not existing user with auth', async ()=> {
-    const resp = await accountApi.getUserById('YRTYUTYUvc64563546', {Authorization: `Bearer ${token}`});
+    const resp = await accountApi.getUserById('YRTYUTYUvc64563546', { Authorization: `Bearer ${token}` });
     expect(resp.status).toEqual(401);
     expect(resp.data.message).toEqual("User not found!");
   });
 
   test.failing('Cannot DELETE not-existing user', async ()=> {
-    const resp = await accountApi.deleteUser('YRTYUTYUvc64563546', {Authorization: `Bearer ${token}`});
+    const resp = await accountApi.deleteUser('YRTYUTYUvc64563546', { Authorization: `Bearer ${token}` });
     expect(resp.status).toEqual(404);
     expect(resp.data.message).toEqual("User Id not correct!");
   });
 
   test.skip('Cannot DELETE existing user without proper auth', async ()=> {
-    const resp = await accountApi.deleteUser(userId, {Authorization: `Bearer abc`});
+    const resp = await accountApi.deleteUser(userId, { Authorization: `Bearer abc` });
     expect(resp.status).toEqual(401);
     expect(resp.data.message).toEqual("User not authorized!");
   });
 
   test.skip('Can DELETE existing user', async ()=> {
-    const resp = await accountApi.deleteUser(userId, {Authorization: `Bearer ${token}`});
+    const resp = await accountApi.deleteUser(userId, { Authorization: `Bearer ${token}` });
     expect(resp.status).toEqual(204);
     // expect(resp.data.message).toEqual("User Id not correct!");
 
-    const respGet = await accountApi.getUserById(userId, {Authorization: `Bearer ${token}`});
+    const respGet = await accountApi.getUserById(userId, { Authorization: `Bearer ${token}` });
     expect(respGet.status).toEqual(401);
     expect(respGet.data.message).toEqual("User not found!");
   });
