@@ -10,6 +10,8 @@ jobs:
     - uses: actions/setup-node@v3
     - name: Navigate test folder
       run: cd lesson13-14
+    - name: Verify you are in right folder
+      run: pwd && ls -a
     - name: Install dependecies
       run: npm ci
     - name: Run api test
