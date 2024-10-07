@@ -18,6 +18,7 @@ jobs:
       working-directory: ./lesson13-14
       run: npm run lint
   tests: 
+    if: ${{ always() }}
     neds: lint
     runs-on: ubuntu-latest
     steps:
