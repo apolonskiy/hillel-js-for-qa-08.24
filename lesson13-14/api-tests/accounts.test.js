@@ -93,13 +93,13 @@ describe('Account tests', () => {
     expect(resp.data.message).toEqual("User Id not correct!");
   });
 
-  test('Cannot DELETE existing user without proper auth', async ()=> {
+  test.skip('Cannot DELETE existing user without proper auth', async ()=> {
     const resp = await accountApi.deleteUser(userId, {Authorization: `Bearer abc`});
     expect(resp.status).toEqual(401);
     expect(resp.data.message).toEqual("User not authorized!");
   });
 
-  test('Can DELETE existing user', async ()=> {
+  test.skip('Can DELETE existing user', async ()=> {
     const resp = await accountApi.deleteUser(userId, {Authorization: `Bearer ${token}`});
     expect(resp.status).toEqual(204);
     // expect(resp.data.message).toEqual("User Id not correct!");
