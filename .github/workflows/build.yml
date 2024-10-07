@@ -1,5 +1,8 @@
 name: CI API Tests
 on:
+  push:
+    branches:
+      - "*"
   pull_request:
     types: ['opened']
 jobs:
