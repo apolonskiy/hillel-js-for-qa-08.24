@@ -1,0 +1,32 @@
+name: CI API Tests
+on:
+  push:
+    branches:
+      - "*"
+  pull_request:
+    types: ['opened']
+jobs:
+  lint: 
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+    - name: Install dependecies
+      working-directory: ./lesson13-14
+      run: npm ci
+    - name: Run lint
+      working-directory: ./lesson13-14
+      run: npm run lint
+  tests: 
+    if: ${{ always() }}
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+    - name: Install dependecies
+      working-directory: ./lesson13-14
+      run: npm ci
+    - name: Run api test
+      working-directory: ./lesson13-14
+      run: npm run test:node-setup
