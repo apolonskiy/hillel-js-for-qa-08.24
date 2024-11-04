@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DOM tree structure</title>
+  </head>
+  <body>
+    <h1 id="h1DOM">DOM tree structure1</h1>
+    <h1>DOM tree structure1</h1>
+	<h2 id="h2DOM">Learn about the DOM</h2>
+  <button id="myButton">Test handling </button>
+  <form >FORM
+    <div >DIV
+	      <p >P</p>
+    </div>
+</form>
+  <table data-test="table1">
+    <tbody>
+      <tr id="row-1">
+        <td>123</td>
+        <td>456</td>
+      </tr>
+      <tr id="row-2">
+        <td>test1</td>
+        <td>test2</td>
+      </tr>
+      <tr id="row-3">
+        <td>!@#$%</td>
+        <td>%^&*</td>
+      </tr>
+    </tbody>
+  </table >
+  <br>
+  <br>
+    <table data-test="table2">
+    <tbody>
+      <tr>
+        <th>Name</th>
+        <th>Value</th>
+      </tr>
+      <tr id="table-1-row1">
+        <td>QQQ123</td>
+        <td>45WWW6</td>
+      </tr>
+      <tr id="table-1-row2">
+        <td>EEE</td>
+        <td>RRR</td>
+      </tr>
+      <tr id="table-1-row3">
+        <td>AAA</td>
+        <td>AAA</td>
+      </tr>
+    </tbody>
+  </table>
+  </body>
+  <script>
+    const h2Dom = document.getElementById('h2DOM');
+    h2Dom.addEventListener('mouseover', () => h2Dom.style.color = 'red')
+    h2Dom.addEventListener('mouseout', () => h2Dom.style.color = 'green')
+  </script>
+</html>
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DOM tree structure</title>
+  </head>
+  <body>
+    <div class="headingContainer" data-test="headingContainer">
+      <h1 id="headingOne">DOM tree structure</h1>
+	    <h2 id="headingTwo">Learn about the DOM</h2>
+    </div>
+     <div class="headingContainer" data-test="headingContainer">
+      <h3 id="headingOne">DOM tree structure</h1>
+	    <h4 id="headingTwo">Learn about the DOM</h2>
+    </div> -->
+  <!-- </body> -->
+<!-- </html> -->
