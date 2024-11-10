@@ -1,11 +1,12 @@
-const { defineConfig } = require("cypress");
+import { defineConfig } from "cypress";
 
-module.exports = defineConfig({
-  retries: { runMode: 2, openMode: 2 },
-  screenshotsFolder: 'cypress/testFolder',
+export default defineConfig({
+  retries: { runMode: 0, openMode: 0 },
+  screenshotsFolder: 'cypress/screenshots',
   video: true,
   viewportWidth: 1400,
   viewportHeight: 900,
+  chromeWebSecurity: false,
   e2e: {
     baseUrl: 'https://example.cypress.io',
     specPattern: 'cypress/e2e/**/*.spec.{js,jsx,ts,tsx}',
