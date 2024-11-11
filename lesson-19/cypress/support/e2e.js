@@ -15,7 +15,21 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
-import('cypress-xpath');
+import 'cypress-xpath';
+
+before(() => {
+  cy.log('this is global before');
+})
+
+beforeEach(() => {
+//   if(process.env.isMobile) {
+//     const mobileHeaders = {
+//         userAgent : 'Mozilla/5.0 (Macintosh; Intel Mac OS X x.y; rv:42.0) Gecko/20100101 Firefox/42.0'
+//     }
+//     cy.visit(url, {...mobileHeaders})
+//   }  
+  cy.log('Global before each')
+})
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

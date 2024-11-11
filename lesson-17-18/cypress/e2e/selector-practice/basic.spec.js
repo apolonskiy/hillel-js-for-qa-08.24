@@ -1,9 +1,9 @@
 import MainPage from '../pageObjectModels/mainPage.js'
-import LoginPage from '../pageObjectModels/loginPage.js'
+import LoginPage from '../pageObjectModels/Lo.js'
 
 
 const mainPage = new MainPage();
-const loginPage = new LoginPage();
+
 
 describe('Wikipedia Landing Page testing', () => {
 
@@ -65,42 +65,17 @@ describe('Wikipedia Landing Page testing', () => {
   }) 
 })
 
+let loginPage;
 
 describe.only('Todoes enhanced testing', () => {
+  before(() => {
+    loginPage = new LoginPage
+  })
   beforeEach(() => {
-    cy.visit('/todo')
-  })
-
-  it('Delete all TODOs', () => {
-    cy.get('ul[class="todo-list"] li[data-id]').should('have.length', 2)
-    cy.get('ul[class="todo-list"] li[data-id]').its('length').then($length => {
-      for(let i = 0; i < $length; i++){
-        cy.get('ul[class="todo-list"] li[data-id]').eq(0).trigger('mouseover');
-        cy.get('ul[class="todo-list"] li[data-id] button').eq(0).click({force: true});
-      }
-    })
-    cy.get('ul[class="todo-list"] li[data-id]').should('have.length', 0)
-  })
-
-  it('Create new TODO', () => {
-    cy.get('ul[class="todo-list"] li[data-id]').should('have.length', 2)
-    cy.get('input[data-test="new-todo"]').type('newTodo').type('{enter}')
-    cy.get('ul[class="todo-list"] li[data-id]').should('have.length', 3)
-  })
-  
-    it('Can complete created TODO and clear it', () => {
-    cy.get('ul[class="todo-list"] li[data-id]').should('have.length', 2)
-    cy.get('input[data-test="new-todo"]').type('newTodo').type('{enter}')
-    cy.get('ul[class="todo-list"] li[data-id]').eq(2).should('not.have.class', 'completed')
-    cy.get('ul[class="todo-list"] li[data-id] input').eq(2).click()
-    cy.get('ul[class="todo-list"] li[data-id]').eq(2).should('have.class', 'completed')
-    cy.get('button').contains('Clear completed').click()
-    cy.get('ul[class="todo-list"] li[data-id]').should('have.length', 2)
+    loginPage.navigateToMainPageWithLogin()
   })
 
   it.only('homework navitagion', () => {
-    loginPage.navigateToMainPageWithLogin()
-    cy.log('test')
     mainPage.homeButton().should('exist')
   })
 })
