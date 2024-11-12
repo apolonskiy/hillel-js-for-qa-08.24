@@ -12,14 +12,14 @@ describe('Class showase', () => {
     cy.get('input[id="checkbox1"]').should('be.checked')
   })
 
-  //   it('Drag n Drop test',  () => { 
-  //     cy.visit('https://practice.expandtesting.com/drag-and-drop')
+  it.only('Drag and Drop with NPM package', () => {
+    cy.visit('http://www.dhtmlgoodies.com/scripts/drag-drop-custom/demo-drag-drop-3.html')
+    cy.wait(1000)
+    cy.contains('div[class="dragableBox"][id*="box"]', 'Oslo').drag('div[id="box101"]', { force: true })
+    cy.get('div[id="box101"]').trigger('mouseup', { which:1, force: true });
+    cy.get('div[id="box101"]').find('div[class="dragableBox"][id*="box"]').should('have.text', 'Oslo')
+  })
 
-  //     cy.get('div[id="column-a"]')
-  //       .trigger('mousedown', { which: 1 })
-  //       .trigger('mousemove', { pageX: 500 })
-  //       .trigger('mouseup')
-  //   })
 
   it('Scroll into view',  () => { 
     cy.visit('https://practice.expandtesting.com')

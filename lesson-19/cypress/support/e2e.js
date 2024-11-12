@@ -16,6 +16,7 @@
 // Import commands.js using ES2015 syntax:
 import './commands'
 import 'cypress-xpath';
+import '@4tw/cypress-drag-drop'
 
 before(() => {
   cy.log('this is global before');
