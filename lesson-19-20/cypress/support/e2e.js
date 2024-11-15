@@ -17,6 +17,9 @@
 import './commands'
 import 'cypress-xpath';
 import '@4tw/cypress-drag-drop'
+import { addMatchImageSnapshotCommand } from '@simonsmith/cypress-image-snapshot/command'
+
+addMatchImageSnapshotCommand()
 
 before(() => {
   cy.log('this is global before');

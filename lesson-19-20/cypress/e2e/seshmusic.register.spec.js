@@ -15,6 +15,8 @@ describe('Registration spec', () => {
       randomUserData = RegisterPage.generateUserData();
       landingPage.visit()
       landingPage.clickSignUpLink()
+      cy.log('TEST1')
+      console.log('TEST2')
       registerPage.logOut()
       landingPage.visit()
       cy.wait(500)
@@ -23,6 +25,10 @@ describe('Registration spec', () => {
     })
 
     it('Successful register will fully filled forms', () => { 
+      cy.url().then(url => {
+        cy.task('log', `URL INSIDE TEST: ${url}`)
+      })
+      
       registerPage
         .fillInInitialForm(randomUserData)
         .clickSubmitButton();

@@ -12,7 +12,7 @@ describe('Class showase', () => {
     cy.get('input[id="checkbox1"]').should('be.checked')
   })
 
-  it.only('Drag and Drop with NPM package', () => {
+  it('Drag and Drop with NPM package', () => {
     cy.visit('http://www.dhtmlgoodies.com/scripts/drag-drop-custom/demo-drag-drop-3.html')
     cy.wait(1000)
     cy.contains('div[class="dragableBox"][id*="box"]', 'Oslo').drag('div[id="box101"]', { force: true })

@@ -46,6 +46,6 @@ export default [
     }
   },
   {
-    ignores: ["data/**"]
+    ignores: ["data/**", "mochawesome-report/**"]
   }
 ];
