@@ -31,7 +31,7 @@ export default defineConfig({
       const configJson = getConfigurationByFile(configFile);
       console.log(configJson)
       console.log(config);
-      config = {...config, ...configJson};
+      config = { ...config, ...configJson };
 
       // config.baseUrl = config.env.BASE_URL || 'https://staging-bpm-colab.vercel.app'
       return config
