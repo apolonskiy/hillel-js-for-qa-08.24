@@ -15,8 +15,6 @@ describe('Registration spec', () => {
       randomUserData = RegisterPage.generateUserData();
       landingPage.visit()
       landingPage.clickSignUpLink()
-      cy.log('TEST1')
-      console.log('TEST2')
       registerPage.logOut()
       landingPage.visit()
       cy.wait(500)
