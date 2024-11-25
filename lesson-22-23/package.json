@@ -1,0 +1,16 @@
+{
+  "name": "lesson-22-23",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test:all:chrome:headed": "playwright test --headed --project='Google Chrome'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.49.0",
+    "@types/node": "^22.9.3"
+  }
+}
