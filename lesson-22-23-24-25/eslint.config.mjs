@@ -35,7 +35,8 @@ export default [
       "space-in-parens": ["error", "never"],
       "jest/no-standalone-expect": "off",
       "@stylistic/js/object-curly-spacing": ["error","always"],
-      "cypress/no-unnecessary-waiting": "off"
+      "cypress/no-unnecessary-waiting": "off",
+      "no-unsafe-optional-chaining": "warn"
     }
   },
   {

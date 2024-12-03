@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
-import { LoginPage, LibraryPage, LoginForm } from "../src/pageObjects";
-import { getLibraryQuery } from '../src/graphqlQueries';
-import { deleteAttachmentQuery } from '../src/graphqlQueries/attachmentQueries';
+import { LoginPage, LibraryPage } from "../../src/pageObjects";
+import { getLibraryQuery } from '../../src/graphqlQueries';
+import { deleteAttachmentQuery } from '../../src/graphqlQueries/attachmentQueries';
 
 
 let loginPage;
@@ -51,7 +51,8 @@ test.describe('Login as existing user and manage Library', () => {
     }
   })
 
-  test('Upload of new file nad removal afterwards works', async() => {
+  test('Upload of new file nad removal afterwards works', { tag: '@showcase' }, async() => {
+    page.pause()
     expect(await libraryPage.isUploadVisible(fileName)).toBeFalsy()
     await libraryPage.uploadFile(fileSubPath);
     expect(await libraryPage.isUploadVisible(fileName)).toBeTruthy();
@@ -60,9 +61,13 @@ test.describe('Login as existing user and manage Library', () => {
     expect(await libraryPage.isUploadVisible(fileName)).toBeFalsy()
   })
 
-  test('Library page screenshot testing', async () => {
-    await libraryPage.waitForPageToLoad();
-    await expect(libraryPage.page).toHaveScreenshot('library.png');
-  })
 
+  test('Dummy test', async() => {
+    expect(await libraryPage.isUploadVisible(fileName)).toBeFalsy()
+    await libraryPage.uploadFile(fileSubPath);
+    expect(await libraryPage.isUploadVisible(fileName)).toBeTruthy();
+    await libraryPage.deleteUploadedFile(fileName);
+    await libraryPage.page.waitForTimeout(1500);
+    expect(await libraryPage.isUploadVisible(fileName)).toBeFalsy()
+  })
 })

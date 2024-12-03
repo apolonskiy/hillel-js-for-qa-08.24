@@ -1,16 +1,19 @@
-// @ts-check
 import { defineConfig, devices } from '@playwright/test';
+import 'dotenv/config'
+// const dotenv = require('dotenv').config()
+// console.log(dotenv);
 
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
-// require('dotenv').config({ path: path.resolve(__dirname, '.env') });
-
+require('dotenv').config();
+// process.env.BASE_URL = dotenv.parsed.BASE_URL;
+console.log('CONFIGGGG', process.env.BASE_URL)
 /**
  * @see https://playwright.dev/docs/test-configuration
  */
-module.exports = defineConfig({
+export default defineConfig({
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: false,
@@ -25,7 +28,9 @@ module.exports = defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: process.env.ENV === 'dev' ?  'https://staging-bpm-colab.vercel.app' : 'https://seshmusic.io',
+    // baseURL: process.env.ENV === 'dev' ?  'https://staging-bpm-colab.vercel.app' : 'https://seshmusic.io',
+  
+    baseURL: process.env.BASE_URL,
 
     actionTimeout: 5000,
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */

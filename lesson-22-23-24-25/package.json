@@ -1,0 +1,32 @@
+{
+  "name": "lesson-22-23",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "test:all:chrome:headed": "SOME_ENV=some_value playwright test /tests/functional --headed --project='Google Chrome'",
+    "test:all:chrome-functional:headed": "SOME_ENV=some_value playwright test --grep '@showcase' --headed --project='Google Chrome'",
+    "test:all:chrome-visual:headed": "SOME_ENV=some_value playwright test /tests/visual --headed --project='Google Chrome'",
+    "test:dev:headed": "source .env && playwright test --grep '@showcase' --headed --project='Google Chrome'",
+    "test:dev-dotenv:headed": "playwright test --grep '@showcase' --headed --project='Google Chrome'",
+    "test:dev-custom-env:headed": "cp './src/env-files/.env.dev' '.env' && source .env && playwright test --grep '@showcase' --headed --project='Google Chrome'",
+    "test:stage-custom-env:headed": "cp -i './src/env-files/.env.stage' '.env' && source .env && playwright test --grep '@showcase' --headed --project='Google Chrome'"
+ 
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@eslint/js": "^9.15.0",
+    "@stylistic/eslint-plugin-js": "^2.11.0",
+    "dotenv": "^16.4.5",
+    "eslint": "^9.15.0",
+    "eslint-plugin-playwright": "^2.1.0"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.49.0",
+    "@types/node": "^22.9.3"
+  }
+}
