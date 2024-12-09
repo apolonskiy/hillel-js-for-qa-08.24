@@ -79,7 +79,7 @@ export default defineConfig({
     //   name: 'Microsoft Edge',
     //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
     // },
-    {name: 'setup', testMatch: '*.setup.js'},
+    { name: 'setup', testMatch: '*.setup.js' },
     {
       name: 'Google Chrome',
       use: { 

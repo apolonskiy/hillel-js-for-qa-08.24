@@ -16,10 +16,10 @@ export const test = base.extend({
     await loginPage.navigateToPage();
     await page.waitForTimeout(2000)
   },
-    /**
+  /**
    * @type {import('../pageObjects').LoginPage}
    */
-  loginPage: async ({page}, use) => {
+  loginPage: async ({ page }, use) => {
     await use(new LoginPage(page));
   }
 });

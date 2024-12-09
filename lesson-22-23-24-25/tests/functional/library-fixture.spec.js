@@ -4,7 +4,8 @@ const fileName = 'random.json';
 const fileSubPath = `/jsons/${fileName}`;
 
 test.beforeEach(async ({ loginPage, page }) => {
-//   console.log(loginPage);
+  console.log(loginPage);
+  console.log(page)
 })
 
 test('Fixture library manage single file', async ({ libraryPage }) => {

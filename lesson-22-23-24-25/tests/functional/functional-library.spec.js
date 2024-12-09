@@ -1,5 +1,5 @@
 import { test } from '@playwright/test';
-import { LoginPage, LibraryPage } from "../../src/pageObjects";
+import { LoginPage } from "../../src/pageObjects";
 import { getLibraryQuery } from '../../src/graphqlQueries';
 import { deleteAttachmentQuery } from '../../src/graphqlQueries/attachmentQueries';
 
@@ -33,7 +33,7 @@ test.describe('Login as existing user and manage Library', () => {
     libraryPage = await loginPage.executeLogin(userEmail, userPwd);
     await libraryPage.waitForPageToLoad();
     // await page.pause()
-    // await setlocalStorage(page, 'hillel-1', 'superb');
+    await setlocalStorage(page, 'hillel-1', 'superb');
     // await page.pause();
     await page.goto('/app/shared-files');
     await goBackInBrowser(page);
