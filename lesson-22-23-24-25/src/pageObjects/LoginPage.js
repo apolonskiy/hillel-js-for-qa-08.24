@@ -20,10 +20,14 @@ export default class LoginPage extends BasePage {
   }
 
   async executeLogin(email, password){
+    console.log('LOIGN!')
     await this.loginForm.filInForm(email, password)
     await this.locators.loginButton.click();
     return new LibraryPage(this.page, this.context);
   }
 
-
+  async clearCookies(){
+    console.log('CLEAR COOKIES')
+    await this.context.clearCookies();
+  }
 }

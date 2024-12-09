@@ -8,17 +8,35 @@ let loginPage;
 /** @type {LibraryPage} */
 let libraryPage;
 
-const userEmail = 'test-23@hillel.com';
-const userPwd = 'passW0Rd!';
+const userEmail = process.env.USER_NAME;
+const userPwd = process.env.USER_PASSWORD;
 const fileName = 'random.json';
-const fileSubPath = `/jsons/${fileName}`
+const fileSubPath = `/jsons/${fileName}`;
+
+const setlocalStorage = async (page, key, value) => {
+  await page.evaluate(({ key, value }) => {
+    // eslint-disable-next-line no-undef
+    localStorage.setItem(key, value);
+  }, { key, value });
+}
+
+const goBackInBrowser = async(page) => (
+  // eslint-disable-next-line no-undef
+  await page.evaluate(() => window.history.back())
+)
 
 test.describe('Login as existing user and manage Library', () => {
   test.beforeEach(async({ page }) => {
     loginPage = new LoginPage(page);
-    await loginPage.navigateToPage()
-    libraryPage = new LibraryPage(page)
+    await loginPage.navigateToPage();
+    // libraryPage = new LibraryPage(page)
     libraryPage = await loginPage.executeLogin(userEmail, userPwd);
+    await libraryPage.waitForPageToLoad();
+    // await page.pause()
+    // await setlocalStorage(page, 'hillel-1', 'superb');
+    // await page.pause();
+    await page.goto('/app/shared-files');
+    await goBackInBrowser(page);
   })
 
   test.afterEach(async({ request, baseURL, context }) => {

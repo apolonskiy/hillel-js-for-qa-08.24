@@ -36,7 +36,8 @@ export default [
       "jest/no-standalone-expect": "off",
       "@stylistic/js/object-curly-spacing": ["error","always"],
       "cypress/no-unnecessary-waiting": "off",
-      "no-unsafe-optional-chaining": "warn"
+      "no-unsafe-optional-chaining": "warn",
+      "playwright/expect-expect":'off'
     }
   },
   {
