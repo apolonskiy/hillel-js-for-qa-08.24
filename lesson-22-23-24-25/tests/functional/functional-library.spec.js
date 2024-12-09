@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test } from '@playwright/test';
 import { LoginPage, LibraryPage } from "../../src/pageObjects";
 import { getLibraryQuery } from '../../src/graphqlQueries';
 import { deleteAttachmentQuery } from '../../src/graphqlQueries/attachmentQueries';
@@ -52,22 +52,21 @@ test.describe('Login as existing user and manage Library', () => {
   })
 
   test('Upload of new file nad removal afterwards works', { tag: '@showcase' }, async() => {
-    page.pause()
-    expect(await libraryPage.isUploadVisible(fileName)).toBeFalsy()
+    await libraryPage.isUploadNotVisible(fileName)
     await libraryPage.uploadFile(fileSubPath);
-    expect(await libraryPage.isUploadVisible(fileName)).toBeTruthy();
+    await libraryPage.isUploadVisible(fileName)
     await libraryPage.deleteUploadedFile(fileName);
     await libraryPage.page.waitForTimeout(1500);
-    expect(await libraryPage.isUploadVisible(fileName)).toBeFalsy()
+    await libraryPage.isUploadNotVisible(fileName)
   })
 
 
   test('Dummy test', async() => {
-    expect(await libraryPage.isUploadVisible(fileName)).toBeFalsy()
+    await libraryPage.isUploadNotVisible(fileName)
     await libraryPage.uploadFile(fileSubPath);
-    expect(await libraryPage.isUploadVisible(fileName)).toBeTruthy();
+    await libraryPage.isUploadVisible(fileName)
     await libraryPage.deleteUploadedFile(fileName);
     await libraryPage.page.waitForTimeout(1500);
-    expect(await libraryPage.isUploadVisible(fileName)).toBeFalsy()
+    await libraryPage.isUploadNotVisible(fileName)
   })
 })

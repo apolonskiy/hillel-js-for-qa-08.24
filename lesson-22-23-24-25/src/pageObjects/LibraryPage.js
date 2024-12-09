@@ -25,8 +25,12 @@ export default class LibraryPage extends BasePage{
     await this.page.waitForTimeout(1500);
   }
 
+  async isUploadNotVisible(fileName){
+    await expect(this.locators.genericUploadedFileDiv.locator('span', { hasText: fileName })).toBeHidden()
+  }
+
   async isUploadVisible(fileName){
-    return this.locators.genericUploadedFileDiv.locator('span', { hasText: fileName }).isVisible()
+    await expect(this.locators.genericUploadedFileDiv.locator('span', { hasText: fileName })).toBeVisible()
   }
 
   async deleteUploadedFile(fileName){
