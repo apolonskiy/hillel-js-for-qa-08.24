@@ -1,0 +1,26 @@
+{
+  "name": "lesson-29",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "test:all:chrome:headed": "source .env && playwright test --headed --project='Google Chrome'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@eslint/js": "^9.15.0",
+    "@stylistic/eslint-plugin-js": "^2.11.0",
+    "@testomatio/reporter": "^1.6.4",
+    "dotenv": "^16.4.5",
+    "eslint": "^9.15.0",
+    "eslint-plugin-playwright": "^2.1.0"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.49.0",
+    "@types/node": "^22.9.3"
+  }
+}

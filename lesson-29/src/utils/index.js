@@ -1,0 +1,1 @@
+export { getRandomCarData } from './carDataGenerator';

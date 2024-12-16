@@ -1,0 +1,1 @@
+export { test as garageCreatedCar } from './garage-created-car.fixture'
