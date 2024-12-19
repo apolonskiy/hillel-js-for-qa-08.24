@@ -40,6 +40,7 @@ export default class CarsApi extends BaseApiClient {
     const carBrandData = (await carBrandsResp.json()).data.find(({ title }) => title === brand);
     const carModelResp = await this.getCarModel(carBrandData.id);
     const carModelData =  (await carModelResp.json()).data.find(({ title }) => title === model);
-    return this.request.post(`${this.baseUrl}${this.apiPath}`, { data: { carBrandId: carBrandData.id, carModelId: carModelData.id, mileage },headers: this.headers })
+    console.log('PAYLOAD', { carBrandId: carBrandData.id, carModelId: carModelData.id, mileage })
+    return this.request.post(`${this.baseUrl}${this.apiPath}`, { data: { carBrandId: carBrandData.id, carModelId: carModelData.id, mileage }, headers: this.headers })
   }
 }

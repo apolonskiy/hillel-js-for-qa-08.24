@@ -33,12 +33,12 @@ export default class GaragePage extends BasePage {
 
   async addCar({ brand, model, mileage }) {
     // eslint-disable-next-line playwright/no-wait-for-timeout
-    await this.page.waitForTimeout(500);
+    await this.page.waitForTimeout(350);
     await this.selectors.formBrandDropdown.selectOption({ label:brand });
     // eslint-disable-next-line playwright/no-wait-for-timeout
     await this.page.waitForTimeout(500);
     await this.selectors.formModelDropdown.selectOption({ label:model });
-    await this.selectors.formMileageField.fill(mileage);
+    await this.selectors.formMileageField.fill(mileage.toString());
     await this.selectors.formAddButton.click();
     this.createdCars.push({ brand, model, mileage });
   }

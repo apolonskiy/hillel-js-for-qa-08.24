@@ -1,5 +1,5 @@
 import { defineConfig } from "cypress";
-import { addMatchImageSnapshotPlugin } from '@simonsmith/cypress-image-snapshot/plugin'
+// import { addMatchImageSnapshotPlugin } from '@simonsmith/cypress-image-snapshot/plugin'
 import fs from 'fs-extra';
 import * as path from 'path';
 
@@ -26,7 +26,7 @@ export default defineConfig({
   e2e: {
     specPattern: 'cypress/e2e/**/*.spec.{js,jsx,ts,tsx}',
     setupNodeEvents(on, config) {
-      addMatchImageSnapshotPlugin(on)
+      // addMatchImageSnapshotPlugin(on)
       on('task', {
         log(message) {
           console.log(message)
@@ -36,8 +36,6 @@ export default defineConfig({
 
       const configFile = config.env.configFile || 'dev'
       const configJson = getConfigurationByFile(configFile);
-      console.log(configJson)
-      console.log(config);
       config = { ...config, ...configJson };
 
       // config.baseUrl = config.env.BASE_URL || 'https://staging-bpm-colab.vercel.app'

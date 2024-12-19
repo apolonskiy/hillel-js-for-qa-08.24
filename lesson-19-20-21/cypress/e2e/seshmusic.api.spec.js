@@ -4,7 +4,7 @@ import { LandingPage, RegisterPage } from '../support/pageObjects'
 const landingPage = new LandingPage() 
 const registerPage = new RegisterPage() 
 let randomUserData;
-describe.skip('Registration spec', () => {
+describe('Registration spec', () => {
 
   context('Registration via extended Cypress command', () => {
 
@@ -97,7 +97,7 @@ describe.skip('Registration spec', () => {
   })
 })
 
-describe.skip('Register with Intercepting without stubbing', () => {
+describe('Register with Intercepting without stubbing', () => {
 
   context('Intercepting requests', () => {
 
@@ -124,7 +124,7 @@ describe.skip('Register with Intercepting without stubbing', () => {
 
 })
 
-describe.skip('Register with Intercepting with stubbing', () => {
+describe('Register with Intercepting with stubbing', () => {
 
   context('Intercepting requests', () => {
 
@@ -174,7 +174,7 @@ describe('Register with Intercepting and using response for repeated signIn', ()
     })
 
     beforeEach(function() {
-      // cy.setCookie('id_token', this.idToken)
+      cy.setCookie('id_token', this.idToken)
     })
 
     afterEach(() => {
@@ -186,14 +186,14 @@ describe('Register with Intercepting and using response for repeated signIn', ()
       landingPage.clickLogoutIfVisible()
     })
 
-    it.skip('Visit 1', function() {
-      cy.visit('/app/my-library')
-    })
+    // it.skip('Visit 1', function() {
+    //   cy.visit('/app/my-library')
+    // })
 
-    it.skip('Visit 2', function() {
-      cy.visit('/app/my-library')
-      cy.pause()
-    })
+    // it.skip('Visit 2', function() {
+    //   cy.visit('/app/my-library')
+    //   cy.pause()
+    // })
 
     it('Request based on existing token', function() {
       console.log('randomUserData',randomUserData)

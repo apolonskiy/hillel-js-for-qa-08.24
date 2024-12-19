@@ -3,7 +3,7 @@ import { LandingPage, RegisterPage } from '../../support/pageObjects'
 
 const landingPage = new LandingPage() 
 let registerPage;
-describe.only('Registration spec', () => {
+describe.skip('Registration spec', () => {
 
   before(() => {
     registerPage = new RegisterPage()

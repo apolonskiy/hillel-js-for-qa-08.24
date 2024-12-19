@@ -54,6 +54,18 @@ export default defineConfig({
       },
       dependencies: ['setup'],
     },
+
+    { name: 'setup-chromium', testMatch: '*.setup.js', use: {
+      ...devices['Desktop Chrome'], 
+    } },
+    {
+      name: 'chromium',
+      use: { 
+        ...devices['Desktop Chrome'], 
+        storageState: 'session-storage.json'
+      },
+      dependencies: ['setup-chromium'],
+    },
   ],
 });
 

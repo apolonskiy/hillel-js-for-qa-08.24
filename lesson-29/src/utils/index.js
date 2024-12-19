@@ -1,1 +1,2 @@
-export { getRandomCarData } from './carDataGenerator';
+export * from './carDataGenerator';
+export * from './userDataGenerator';

@@ -5,7 +5,11 @@
   "scripts": {
     "lint": "eslint",
     "lint:fix": "eslint --fix",
-    "test:all:chrome:headed": "source .env && playwright test --headed --project='Google Chrome'"
+    "test:all:chrome:headed": "source .env && playwright test --grep-invert @api --headed --project='Google Chrome'",
+    "test:all:chrome": "source .env && playwright test --grep-invert @api --project='Google Chrome'",
+    "test:all:chromium": "playwright test --grep-invert @api --project=chromium",
+    "test:api:chrome": "playwright test --grep @api --project='Google Chrome'",
+    "test:api:chromium": "playwright test --grep @api --project=chromium"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +24,7 @@
     "eslint-plugin-playwright": "^2.1.0"
   },
   "dependencies": {
+    "@faker-js/faker": "^9.3.0",
     "@playwright/test": "^1.49.0",
     "@types/node": "^22.9.3"
   }
