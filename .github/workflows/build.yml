@@ -59,9 +59,9 @@ jobs:
         run: npm ci
       - name: Run Cypress default command tests
         uses: cypress-io/github-action@v6
-        working-directory: ./lesson-19-20-21
         with:
           browser: chrome
+          working-directory: ./lesson-19-20-21
   tests-playwright: 
     name: 'Playwright E2E Tests'
     needs: lint
