@@ -132,7 +132,6 @@ describe('Register with Intercepting with stubbing', () => {
       cy.intercept('POST', '/v1/accounts:signUp*',  (req) => {
         // req.reply({statusCode: 400, body: { idToken: 'invalid' }})
         req.on('response', (res) => {
-          console.log('res.body.email',res.body.email)
           res.body.email = 'fakeEmail@email.com'
           res.send(res.body);
         })
@@ -143,13 +142,12 @@ describe('Register with Intercepting with stubbing', () => {
 
     it('Intercepring registration calls', function() {
       cy.wait('@signUpRequest').then((xhr) => {
-        console.log(xhr);
         //request
         expect(xhr.request.body.email).to.equal(randomUserData.email)
         expect(xhr.request.body.password).to.equal(randomUserData.password)
 
         //response
-        expect(xhr.response.body.email).to.equal(randomUserData.email.toLowerCase())
+        expect(xhr.response.body.email).to.equal('fakeEmail@email.com')
         expect(xhr.response.body.expiresIn).to.equal("3600")
         expect(xhr.response.body.idToken).to.be.a('string')
         expect(xhr.response.body.kind).to.equal('identitytoolkit#SignupNewUserResponse')
