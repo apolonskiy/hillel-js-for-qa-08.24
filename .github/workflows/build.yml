@@ -6,14 +6,16 @@ on:
   pull_request:
     types: ['opened']
 jobs:
-  lint: 
+  lint-api: 
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
     - name: Install dependecies
       working-directory: ./lesson-13-14
-      run: npm ci
+      run: | 
+        echo "LINT API TESTS"
+        npm ci
     - name: Run lint
       working-directory: ./lesson-13-14
       run: npm run lint
