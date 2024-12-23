@@ -58,8 +58,8 @@ jobs:
         working-directory: ./lesson-19-20-21
         run: npm ci
       - uses: cypress-io/github-action@v6
-          with:
-            browser: chrome
+        with:
+          browser: chrome
   tests-playwright: 
     name: 'Playwright E2E Tests'
     needs: lint
