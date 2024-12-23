@@ -64,13 +64,13 @@ jobs:
         USER_NAME: ${{ vars.USER_NAME }}
         USER_PASSWORD: ${{ vars.USER_PASSWORD }}  
     - uses: actions/upload-artifact@v3
-        if: always()
-        with:
-          name: playwright-report
-          path: |
-            ./lesson-29/playwright-report/
-            ./lesson-29/test-results/
-          retention-days: 30
+      if: always()
+      with:
+        name: playwright-report
+        path: |
+          ./lesson-29/playwright-report/
+          ./lesson-29/test-results/
+        retention-days: 30
   tests-playwright-default: 
     name: 'Playwright E2E-Api Tests on default image'
     needs: tests-api
@@ -97,10 +97,10 @@ jobs:
         USER_NAME: ${{ vars.USER_NAME }}
         USER_PASSWORD: ${{ vars.USER_PASSWORD }}   
     - uses: actions/upload-artifact@v3
-        if: always()
-        with:
-          name: playwright-report
-          path: |
-            ./lesson-29/playwright-report/
-            ./lesson-29/test-results/
-          retention-days: 30
+      if: always()
+      with:
+        name: playwright-report
+        path: |
+          ./lesson-29/playwright-report/
+          ./lesson-29/test-results/
+        retention-days: 30
