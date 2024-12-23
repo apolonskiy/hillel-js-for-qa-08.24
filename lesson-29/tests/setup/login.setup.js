@@ -1,6 +1,8 @@
 import { test as setup } from '@playwright/test';
 import  { HomePage, GaragePage } from '../../src'
 
+console.log('INFOOOOOO \n\n\n');
+console.log(process.env);
 
 const userEmail = process.env.USER_NAME;
 const userPassword = process.env.USER_PASSWORD;
