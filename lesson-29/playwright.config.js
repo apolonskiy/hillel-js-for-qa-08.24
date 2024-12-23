@@ -1,6 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
 import 'dotenv/config'
-console.log('process.env.TESTOMATIO', process.env.TESTOMATIO)
+console.log('process.env.TESTOMATIO   ', process.env.TESTOMATIO)
 
 /**
  * Read environment variables from file.
