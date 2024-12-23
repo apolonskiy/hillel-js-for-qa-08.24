@@ -76,7 +76,7 @@ jobs:
         run: npm ci
       - name: Run e2e tests
         working-directory: ./lesson-29
-        run: npm run test:all:chrome
+        run: npm run test:all:chromium
       - uses: actions/upload-artifact@v3
         if: always()
         with:
