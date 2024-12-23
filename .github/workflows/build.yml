@@ -1,7 +1,5 @@
-name: CI API Tests
+name: CI Testing
 on:
-  schedule:
-    - cron:  '5 * * * *'
   push:
     branches:
       - "*"
@@ -22,7 +20,7 @@ jobs:
     - name: Run lint
       working-directory: ./lesson-13-14
       run: npm run lint
-  tests: 
+  tests-api: 
     name: 'API tests Jest'
     if: ${{ always() }}
     needs: lint-api
@@ -36,3 +34,37 @@ jobs:
     - name: Run api test
       working-directory: ./lesson-13-14
       run: npm run test:node-setup
+  tests-playwright-custom: 
+    name: 'Playwright E2E Tests on custom image'
+    needs: tests-api
+    if: success() || failure()
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 18
+    - name: Install dependecies
+      working-directory: ./lesson-29
+      run: npm ci
+    - name: Install Playwright Browsers
+      working-directory: ./lesson-29
+      run: npx playwright install --with-deps
+    - name: Run Playwright tests
+      working-directory: ./lesson-29
+      run: npm run test:all:chromium     
+  tests-playwright-default: 
+    name: 'Playwright E2E-Api Tests on default image'
+    needs: tests-api
+    if: success() || failure()
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.49.1-jammy
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install dependecies
+      working-directory: ./lesson-29
+      run: npm ci
+    - name: Run Playwright tests
+      working-directory: ./lesson-29
+      run: npm run test:api:chromium    
