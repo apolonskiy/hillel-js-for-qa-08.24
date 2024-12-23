@@ -149,7 +149,7 @@ describe('Register with Intercepting with stubbing', () => {
         expect(xhr.request.body.password).to.equal(randomUserData.password)
 
         //response
-        expect(xhr.response.body.email).to.equal(randomUserData.email.toLowerCase())
+        expect(xhr.response.body.email).to.equal('fakeEmail@email.com')
         expect(xhr.response.body.expiresIn).to.equal("3600")
         expect(xhr.response.body.idToken).to.be.a('string')
         expect(xhr.response.body.kind).to.equal('identitytoolkit#SignupNewUserResponse')
