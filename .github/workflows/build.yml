@@ -1,5 +1,7 @@
-name: CI API Tests
+name: MAIN BRANCH WORKFLOW
 on:
+  schedule:
+    - cron:  '15 * * * *'
   push:
     branches:
       - "*"
