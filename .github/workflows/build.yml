@@ -52,7 +52,25 @@ jobs:
       run: npx playwright install --with-deps
     - name: Run Playwright tests
       working-directory: ./lesson-29
-      run: npm run test:all:chromium     
+      run: |
+        echo "repository variable : $TESTOMATIO_CREATE"
+        echo "organization variable : $USER_NAME"
+        echo "overridden variable : $USER_PASSWORD"
+        echo "variable from shell environment : $env_var"
+        npm run test:all:chromium   
+      env:
+        TESTOMATIO_CREATE: ${{ vars.TESTOMATIO_CREATE }}
+        TESTOMATIO: ${{ vars.TESTOMATIO }}
+        USER_NAME: ${{ vars.USER_NAME }}
+        USER_PASSWORD: ${{ vars.USER_PASSWORD }}  
+    - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: playwright-report
+          path: |
+            ./lesson-29/playwright-report/
+            ./lesson-29/test-results/
+          retention-days: 30
   tests-playwright-default: 
     name: 'Playwright E2E-Api Tests on default image'
     needs: tests-api
@@ -67,4 +85,22 @@ jobs:
       run: npm ci
     - name: Run Playwright tests
       working-directory: ./lesson-29
-      run: npm run test:api:chromium    
+      run: |
+        echo "repository variable : $TESTOMATIO_CREATE"
+        echo "organization variable : $USER_NAME"
+        echo "overridden variable : $USER_PASSWORD"
+        echo "variable from shell environment : $env_var"
+        npm run test:api:chromium   
+      env:
+        TESTOMATIO_CREATE: ${{ vars.TESTOMATIO_CREATE }}
+        TESTOMATIO: ${{ vars.TESTOMATIO }}
+        USER_NAME: ${{ vars.USER_NAME }}
+        USER_PASSWORD: ${{ vars.USER_PASSWORD }}   
+    - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: playwright-report
+          path: |
+            ./lesson-29/playwright-report/
+            ./lesson-29/test-results/
+          retention-days: 30
