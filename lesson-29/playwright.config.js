@@ -21,6 +21,7 @@ export default defineConfig({
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
     ['list'],
+    ['html', { open: 'never' }],
     [
       '@testomatio/reporter/lib/adapter/playwright.js',
       {
@@ -35,8 +36,8 @@ export default defineConfig({
     httpCredentials: { username: 'guest', password: 'welcome2qauto', send: 'always' },
     actionTimeout: 5000,
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on',
-    video: 'on'
+    trace: process.env.CI ? 'retain-on-failure' : 'on',
+    video: process.env.CI ? 'retain-on-failure': 'on'
   },
 
   /* Configure projects for major browsers */

@@ -1,4 +1,4 @@
-name: MAIN BRANCH WORKFLOW
+name: CI Testing
 on:
   schedule:
     - cron:  '15 * * * *'
@@ -8,20 +8,24 @@ on:
   pull_request:
     types: ['opened']
 jobs:
-  lint: 
+  lint-api: 
+    name: 'Lint API tests folder'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
     - name: Install dependecies
       working-directory: ./lesson-13-14
-      run: npm ci
+      run: | 
+        echo "LINT API TESTS"
+        npm ci
     - name: Run lint
       working-directory: ./lesson-13-14
       run: npm run lint
-  tests: 
+  tests-api: 
+    name: 'API tests Jest'
     if: ${{ always() }}
-    needs: lint
+    needs: lint-api
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -32,3 +36,91 @@ jobs:
     - name: Run api test
       working-directory: ./lesson-13-14
       run: npm run test:node-setup
+  tests-playwright-custom: 
+    name: 'Playwright E2E Tests on custom image'
+    needs: tests-api
+    if: success() || failure()
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.49.1-jammy
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install dependecies
+      working-directory: ./lesson-29
+      run: npm ci
+    - name: Run Playwright tests
+      working-directory: ./lesson-29
+      run: npm run test:all:chromium   
+      env:
+        TESTOMATIO_CREATE: ${{ vars.TESTOMATIO_CREATE }}
+        TESTOMATIO: ${{ vars.TESTOMATIO }}
+        USER_NAME: ${{ vars.USER_NAME }}
+        USER_PASSWORD: ${{ vars.USER_PASSWORD }}  
+    - uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: playwright-report-e2e
+        path: |
+          ./lesson-29/playwright-report/
+          ./lesson-29/test-results/
+        retention-days: 30
+  tests-playwright-default: 
+    name: 'Playwright E2E-Api Tests on default image'
+    needs: tests-api
+    if: success() || failure()
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.49.1-jammy
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install dependecies
+      working-directory: ./lesson-29
+      run: npm ci
+    - name: Run Playwright tests
+      working-directory: ./lesson-29
+      run: npm run test:api:chromium   
+      env:
+        TESTOMATIO_CREATE: ${{ vars.TESTOMATIO_CREATE }}
+        TESTOMATIO: ${{ vars.TESTOMATIO }}
+        USER_NAME: ${{ vars.USER_NAME }}
+        USER_PASSWORD: ${{ vars.USER_PASSWORD }}   
+    - uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: playwright-report-api
+        path: |
+          ./lesson-29/playwright-report/
+          ./lesson-29/test-results/
+        retention-days: 30
+  test-cypress-custom: 
+    name: 'Cypress custom run command'
+    needs: lint-api
+    runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:latest
+      options: --user 1001
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependecies
+        working-directory: ./lesson-19-20-21
+        run: npm ci
+      - name: Run Cypress tests
+        working-directory: ./lesson-19-20-21
+        run: npm run cypress:run --  --browser chrome
+  test-cypress: 
+    name: 'Cypress default config tests'
+    needs: test-cypress-custom
+    runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:latest
+      options: --user 1001
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependecies
+        working-directory: ./lesson-19-20-21
+        run: npm ci
+      - name: Run Cypress default command tests
+        uses: cypress-io/github-action@v6
+        with:
+          browser: chrome
+          working-directory: ./lesson-19-20-21
