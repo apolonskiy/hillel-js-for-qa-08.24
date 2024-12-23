@@ -78,8 +78,8 @@ jobs:
         working-directory: ./lesson-29
         run: npm run test:all:chrome
       - uses: actions/upload-artifact@v3
-      if: always()
-      with:
-        name: playwright-report
-        path: playwright-report/
-        retention-days: 30
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
