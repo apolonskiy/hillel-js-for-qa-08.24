@@ -7,6 +7,7 @@ on:
     types: ['opened']
 jobs:
   lint-api: 
+    name: 'Lint API tests folder'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -20,8 +21,9 @@ jobs:
       working-directory: ./lesson-13-14
       run: npm run lint
   tests: 
+    name: 'API tests Jest'
     if: ${{ always() }}
-    needs: lint
+    needs: lint-api
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
