@@ -57,7 +57,8 @@ jobs:
       - name: Install dependecies
         working-directory: ./lesson-19-20-21
         run: npm ci
-      - uses: cypress-io/github-action@v6
+      - name: Run Cypress default command tests
+        uses: cypress-io/github-action@v6
         working-directory: ./lesson-19-20-21
         with:
           browser: chrome
