@@ -18,11 +18,36 @@ jobs:
       - name: Run lint
         working-directory: ./lesson-13-14
         run: npm run lint
+  lint-cypress: 
+    name: 'Lint Cypress tests folder'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - name: Install dependecies
+        working-directory: ./lesson-19-20-21
+        run: npm ci
+      - name: Run lint
+        working-directory: ./lesson-19-20-21
+        run: npm run lint
+  lint-playwright: 
+    name: 'Lint Playwright tests folder'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - name: Install dependecies
+        working-directory: ./lesson-29
+        run: npm ci
+      - name: Run lint
+        working-directory: ./lesson-29
+        run: npm run lint
   tests-api: 
     name: 'API tests Jest'
     if: ${{ always() }}
     needs: lint-api
     runs-on: ubuntu-latest
+    steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
       - name: Install dependecies
@@ -33,7 +58,7 @@ jobs:
         run: npm run test:node-setup
   test-cypress-custom: 
     name: 'Cypress custom run command'
-    needs: lint
+    needs: lint-cypress
     runs-on: ubuntu-latest
     container:
       image: cypress/browsers:latest
@@ -65,7 +90,7 @@ jobs:
           working-directory: ./lesson-19-20-21
   tests-playwright: 
     name: 'Playwright E2E Tests'
-    needs: lint
+    needs: lint-playwright
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright:v1.49.1-jammy
