@@ -6,7 +6,8 @@ on:
   pull_request:
     types: ['opened']
 jobs:
-  lint: 
+  lint-api: 
+    name: 'Lint API tests folder'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -17,11 +18,11 @@ jobs:
       - name: Run lint
         working-directory: ./lesson-13-14
         run: npm run lint
-  tests: 
+  tests-api: 
+    name: 'API tests Jest'
     if: ${{ always() }}
-    needs: lint
+    needs: lint-api
     runs-on: ubuntu-latest
-    steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
       - name: Install dependecies
@@ -85,3 +86,4 @@ jobs:
           name: playwright-report
           path: ./lesson-29/playwright-report/
           retention-days: 30
+          working-directory: ./lesson-19-20-21
